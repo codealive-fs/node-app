@@ -3,7 +3,7 @@ os: linux
 
 files:
 
-* source: /
+  source: /
   destination: /var/www/node-app
 
 hooks:
