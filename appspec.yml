@@ -1,32 +1,14 @@
 version: 0.0
 os: linux
-
 files:
-  source: /
-  destination: /var/www/node-app
-
+  - source: /
+    destination: /var/www/node-app
 hooks:
-ApplicationStop:
-- location: scripts/stop_server.sh
-  timeout: 300
-  runas: root
-
-AfterInstall:
-- location: scripts/install_dependencies.sh
-  timeout: 900
-  runas: root
-
-Change_permissions:
-- location: scripts/change_permissions.sh
-  timeout: 300
-  runas: root
-
-ApplicationStart:
-- location: scripts/start_server.sh
-  timeout: 300
-  runas: root
-
-ValidateService:
-- location: scripts/validate.sh
-  timeout: 120
-  runas: root
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/restart_node.sh
+      timeout: 300
+      runas: ubuntu
