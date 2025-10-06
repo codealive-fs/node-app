@@ -11,7 +11,7 @@ hooks:
   AfterInstall:
     - location: scripts/install_dependencies.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
   ApplicationStart:
     - location: scripts/restart_node.sh
       timeout: 300
